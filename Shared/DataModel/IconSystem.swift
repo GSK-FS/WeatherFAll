@@ -9,7 +9,7 @@ import Foundation
 
 public enum Icon: String {
     case sun = "sun.min.fill"
-    case clouday = "cloud.fill"
+    case cloudy = "cloud.fill"
     case rain = "cloud.rain.fill"
     case thunderstrom = "cloud.bolt.fill"
     case strom = "wind"
@@ -19,8 +19,8 @@ public enum Icon: String {
         switch condition {
         case "sun":
             return Icon.sun.rawValue
-        case "clouday":
-            return Icon.clouday.rawValue
+        case "cloudy":
+            return Icon.cloudy.rawValue
         case "rain":
             return Icon.rain.rawValue
         case "thunderstrom":
