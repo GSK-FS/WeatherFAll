@@ -1,6 +1,6 @@
 //
 //  WeatherDetailView.swift
-//  WheatherFAll
+//  WeatherFAll
 //
 //  Created by GSK on 12/7/21.
 //
@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct WeatherDetailView: View {
+    
+    @EnvironmentObject var settings: SettingsStore
     
     var forecast: ForecastData
     
@@ -69,8 +71,16 @@ struct WeatherDetailView: View {
                     .fill(Color("maxTempBackground"))
                     .frame(width: 150, height: 150)
                     .cornerRadius(16)
-                Text("\(Int(forecast.temp_max)) °F").foregroundColor(.white)
-                    .font(.largeTitle)
+                if settings.showCelsius {
+                    Text("\(Int((forecast.temp_max - 32) * (5/9))) °C")
+                        .foregroundColor(.white)
+                        .font(.largeTitle)
+                } else {
+                    Text("\(Int(forecast.temp_max)) °F")
+                        .foregroundColor(.white)
+                        .font(.largeTitle)
+                }
+                
                 
             }
             Text("High")
@@ -84,8 +94,15 @@ struct WeatherDetailView: View {
                     .fill(Color("minTempBackground"))
                     .frame(width: 150, height: 150)
                     .cornerRadius(16)
-                Text("\(Int(forecast.temp_min)) °F").foregroundColor(.white)
-                    .font(.largeTitle)
+                if settings.showCelsius {
+                    Text("\(Int((forecast.temp_min - 32) * (5/9))) °C")
+                        .foregroundColor(.white)
+                        .font(.largeTitle)
+                } else {
+                    Text("\(Int(forecast.temp_min)) °F")
+                        .foregroundColor(.white)
+                        .font(.largeTitle)
+                }
                 
             }
             Text("Low")

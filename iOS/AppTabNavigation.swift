@@ -1,6 +1,6 @@
 //
 //  AppTabNavigation.swift
-//  WheatherFAll (iOS)
+//  WeatherFAll (iOS)
 //
 //  Created by GSK on 12/9/21.
 //
@@ -26,7 +26,7 @@ struct AppTabNavigation: View {
             }.tag(Tab.weather)
             
             NavigationView {
-                WeatherView()
+                SettingsView()
             }.tabItem {
                 Label("Settings", systemImage: "gear")
                     .accessibility(label: Text("Settings"))

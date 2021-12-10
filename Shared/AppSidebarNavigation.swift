@@ -1,6 +1,6 @@
 //
 //  AppSidebarNavigation.swift
-//  WheatherFAll
+//  WeatherFAll
 //
 //  Created by GSK on 12/9/21.
 //
@@ -14,6 +14,8 @@ struct AppSidebarNavigation: View {
         case settings
     }
     
+    @State private var presentingSettings = false
+    
     @State private var selection: Set<NavigationItem> = [.weather]
     
     var sidebar: some View {
@@ -24,14 +26,18 @@ struct AppSidebarNavigation: View {
             .accessibility(label: Text("Weather"))
             .tag(NavigationItem.weather)
         }
-        .overlay(BottomButton(), alignment: .bottom)
+        .overlay(BottomButton(presentingSettingsView: $presentingSettings), alignment: .bottom)
         .listStyle(SidebarListStyle())
     }
     struct BottomButton: View {
+        @Binding var presentingSettingsView: Bool
+        
         var body: some View {
             VStack(alignment: .leading, spacing: 0) {
                 Divider()
-                Button(action: {}) {
+                Button(action: {
+                    presentingSettingsView = true
+                }) {
                     Label("Settings", systemImage: "gear")
                         .padding(6)
                         .contentShape(Rectangle())
@@ -40,7 +46,24 @@ struct AppSidebarNavigation: View {
                 .padding(.vertical, 8)
                 .padding(.horizontal, 16)
                 .buttonStyle(PlainButtonStyle())
+            }.sheet(isPresented: $presentingSettingsView) {
+                #if os(iOS)
+                SettingsView()
+                #else
+                VStack(spacing: 0) {
+                    SettingsView()
+                    HStack {
+                        Spacer()
+                        Button(action: {presentingSettingsView = false}) {
+                            Text("Done")
+                        }.keyboardShortcut(.defaultAction)
+                        Spacer()
+                    }.padding()
+                }
+                .frame(minWidth: 400, maxWidth: 600, minHeight: 400, maxHeight: 600)
+                #endif
             }
+
         }
     }
     

@@ -1,6 +1,6 @@
 //
 //  WeatherDetailRowView.swift
-//  WheatherFAll
+//  WeatherFAll
 //
 //  Created by GSK on 12/7/21.
 //
