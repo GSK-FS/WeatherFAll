@@ -81,8 +81,8 @@
 		F42409D7275D5B7C009B5A32 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F42409D8275D5B7C009B5A32 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		F42409D9275D5B80009B5A32 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F42409DE275D5B80009B5A32 /* WheatherFAll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WheatherFAll.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		F42409E4275D5B80009B5A32 /* WheatherFAll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WheatherFAll.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F42409DE275D5B80009B5A32 /* WeatherFAll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherFAll.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F42409E4275D5B80009B5A32 /* WeatherFAll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherFAll.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F42409E6275D5B81009B5A32 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		F42409EB275D5B81009B5A32 /* Tests iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F42409EF275D5B81009B5A32 /* Tests_iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_iOS.swift; sourceTree = "<group>"; };
@@ -174,8 +174,8 @@
 		F42409DF275D5B80009B5A32 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F42409DE275D5B80009B5A32 /* WheatherFAll.app */,
-				F42409E4275D5B80009B5A32 /* WheatherFAll.app */,
+				F42409DE275D5B80009B5A32 /* WeatherFAll.app */,
+				F42409E4275D5B80009B5A32 /* WeatherFAll.app */,
 				F42409EB275D5B81009B5A32 /* Tests iOS.xctest */,
 				F42409F7275D5B81009B5A32 /* Tests macOS.xctest */,
 			);
@@ -233,9 +233,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F42409DD275D5B80009B5A32 /* WheatherFAll (iOS) */ = {
+		F42409DD275D5B80009B5A32 /* WeatherFAll (iOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F4240A0B275D5B81009B5A32 /* Build configuration list for PBXNativeTarget "WheatherFAll (iOS)" */;
+			buildConfigurationList = F4240A0B275D5B81009B5A32 /* Build configuration list for PBXNativeTarget "WeatherFAll (iOS)" */;
 			buildPhases = (
 				F42409DA275D5B80009B5A32 /* Sources */,
 				F42409DB275D5B80009B5A32 /* Frameworks */,
@@ -245,16 +245,16 @@
 			);
 			dependencies = (
 			);
-			name = "WheatherFAll (iOS)";
+			name = "WeatherFAll (iOS)";
 			packageProductDependencies = (
 			);
 			productName = "WheatherFAll (iOS)";
-			productReference = F42409DE275D5B80009B5A32 /* WheatherFAll.app */;
+			productReference = F42409DE275D5B80009B5A32 /* WeatherFAll.app */;
 			productType = "com.apple.product-type.application";
 		};
-		F42409E3275D5B80009B5A32 /* WheatherFAll (macOS) */ = {
+		F42409E3275D5B80009B5A32 /* WeatherFAll (macOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F4240A0E275D5B81009B5A32 /* Build configuration list for PBXNativeTarget "WheatherFAll (macOS)" */;
+			buildConfigurationList = F4240A0E275D5B81009B5A32 /* Build configuration list for PBXNativeTarget "WeatherFAll (macOS)" */;
 			buildPhases = (
 				F42409E0275D5B80009B5A32 /* Sources */,
 				F42409E1275D5B80009B5A32 /* Frameworks */,
@@ -264,9 +264,9 @@
 			);
 			dependencies = (
 			);
-			name = "WheatherFAll (macOS)";
+			name = "WeatherFAll (macOS)";
 			productName = "WheatherFAll (macOS)";
-			productReference = F42409E4275D5B80009B5A32 /* WheatherFAll.app */;
+			productReference = F42409E4275D5B80009B5A32 /* WeatherFAll.app */;
 			productType = "com.apple.product-type.application";
 		};
 		F42409EA275D5B81009B5A32 /* Tests iOS */ = {
@@ -331,7 +331,7 @@
 					};
 				};
 			};
-			buildConfigurationList = F42409D2275D5B7B009B5A32 /* Build configuration list for PBXProject "WheatherFAll" */;
+			buildConfigurationList = F42409D2275D5B7B009B5A32 /* Build configuration list for PBXProject "WeatherFAll" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -346,8 +346,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F42409DD275D5B80009B5A32 /* WheatherFAll (iOS) */,
-				F42409E3275D5B80009B5A32 /* WheatherFAll (macOS) */,
+				F42409DD275D5B80009B5A32 /* WeatherFAll (iOS) */,
+				F42409E3275D5B80009B5A32 /* WeatherFAll (macOS) */,
 				F42409EA275D5B81009B5A32 /* Tests iOS */,
 				F42409F6275D5B81009B5A32 /* Tests macOS */,
 			);
@@ -468,12 +468,12 @@
 /* Begin PBXTargetDependency section */
 		F42409ED275D5B81009B5A32 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = F42409DD275D5B80009B5A32 /* WheatherFAll (iOS) */;
+			target = F42409DD275D5B80009B5A32 /* WeatherFAll (iOS) */;
 			targetProxy = F42409EC275D5B81009B5A32 /* PBXContainerItemProxy */;
 		};
 		F42409F9275D5B81009B5A32 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = F42409E3275D5B80009B5A32 /* WheatherFAll (macOS) */;
+			target = F42409E3275D5B80009B5A32 /* WeatherFAll (macOS) */;
 			targetProxy = F42409F8275D5B81009B5A32 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -613,7 +613,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.S10House.WheatherFAll;
-				PRODUCT_NAME = WheatherFAll;
+				PRODUCT_NAME = WeatherFAll;
 				SDKROOT = iphoneos;
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -645,7 +645,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.S10House.WheatherFAll;
-				PRODUCT_NAME = WheatherFAll;
+				PRODUCT_NAME = WeatherFAll;
 				SDKROOT = iphoneos;
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -676,7 +676,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 11.6;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.S10House.WheatherFAll;
-				PRODUCT_NAME = WheatherFAll;
+				PRODUCT_NAME = WeatherFAll;
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -704,7 +704,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 11.6;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.S10House.WheatherFAll;
-				PRODUCT_NAME = WheatherFAll;
+				PRODUCT_NAME = WeatherFAll;
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -815,7 +815,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F42409D2275D5B7B009B5A32 /* Build configuration list for PBXProject "WheatherFAll" */ = {
+		F42409D2275D5B7B009B5A32 /* Build configuration list for PBXProject "WeatherFAll" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F4240A09275D5B81009B5A32 /* Debug */,
@@ -824,7 +824,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F4240A0B275D5B81009B5A32 /* Build configuration list for PBXNativeTarget "WheatherFAll (iOS)" */ = {
+		F4240A0B275D5B81009B5A32 /* Build configuration list for PBXNativeTarget "WeatherFAll (iOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F4240A0C275D5B81009B5A32 /* Debug */,
@@ -833,7 +833,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F4240A0E275D5B81009B5A32 /* Build configuration list for PBXNativeTarget "WheatherFAll (macOS)" */ = {
+		F4240A0E275D5B81009B5A32 /* Build configuration list for PBXNativeTarget "WeatherFAll (macOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F4240A0F275D5B81009B5A32 /* Debug */,
