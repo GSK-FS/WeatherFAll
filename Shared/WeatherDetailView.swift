@@ -11,11 +11,55 @@ struct WeatherDetailView: View {
     
     var forecast: ForecastData
     
+    var backgroundColor: Color {
+        #if os(macOS)
+        return Color(.textBackgroundColor)
+        #else
+        return Color(.secondarySystemBackground)
+        #endif
+    }
+    
+    
     var body: some View {
-        Text("\(forecast.condition_name)")
+        //Text("\(forecast.condition_name)")
+        Group {
+            #if os(iOS)
+            container
+            #else
+            container.frame(minWidth: 500, idealWidth: 700, maxWidth: .infinity, minHeight: 300, idealHeight: 420, maxHeight: .infinity, alignment: .leading)
+            #endif
+        }
             .padding()
             .background(Rectangle().fill(BackgroundStyle()).edgesIgnoringSafeArea(.all))
             .navigationTitle("🗓 \(forecast.date)")
+    }
+    
+    var container: some View {
+        VStack (alignment: .leading, spacing: 20) {
+            VStack (alignment: .leading) {
+                Text(forecast.condition_desc)
+                    .font(Font.title).bold().padding()
+            }.onDrag {
+                return
+                NSItemProvider(object: forecast.condition_desc as NSString)
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .background(backgroundColor)
+            .cornerRadius(16)
+            Text("What to expect ...")
+                .font(Font.title).bold()
+                .foregroundColor(.accentColor)
+            LazyVGrid(columns: [GridItem(.adaptive(minimum: 140, maximum: .infinity), spacing: 16, alignment: .top)], alignment: .center, spacing: 16) {
+                minTempContent.onDrag {
+                    return NSItemProvider(object: String(forecast.temp_min) as NSString)
+                }
+                maxTempContent.onDrag {
+                    return NSItemProvider(object: String(forecast.temp_max) as NSString)
+                }
+                conditionIconContent
+            }
+            Spacer()
+        }
     }
     
     var maxTempContent: some View {

@@ -9,12 +9,30 @@ import SwiftUI
 
 struct WeatherDetailRowView: View {
     
+    struct Metrics {
+        var iconSize: CGFloat
+        var iconPadding: CGFloat
+        var rowPadding: CGFloat
+    }
+    
+    var metrics: Metrics {
+        #if os(iOS)
+        return Metrics(iconSize: 25, iconPadding: 10, rowPadding: 10)
+        #else
+        return Metrics(iconSize: 15, iconPadding: 5, rowPadding: 5)
+        #endif
+    }
+    
+    
     var forecast: ForecastData
     
     var body: some View {
-        HStack(alignment: .top) {
+        HStack(alignment: .center) {
             Image(systemName: Icon.systemIconForCondition(condition: forecast.condition_name))
-                .frame(width: 50, height: 50)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: metrics.iconSize, height: metrics.iconSize)
+                .padding(.trailing, metrics.iconPadding)
                 .accessibility(hidden: true
                 )
             VStack(alignment: .leading) {
@@ -29,7 +47,7 @@ struct WeatherDetailRowView: View {
             Spacer(minLength: 0)
         }
         .font(.subheadline)
-        .padding(.vertical, 0)
+        .padding(.vertical, metrics.rowPadding)
         .accessibilityElement(children: .combine)
     }
 }

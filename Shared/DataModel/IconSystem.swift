@@ -12,7 +12,7 @@ public enum Icon: String {
     case cloudy = "cloud.fill"
     case rain = "cloud.rain.fill"
     case thunderstrom = "cloud.bolt.fill"
-    case strom = "wind"
+    case storm = "wind"
     case snow = "cloud.snow.fill"
     
     static func systemIconForCondition (condition: String) -> String {
@@ -25,8 +25,8 @@ public enum Icon: String {
             return Icon.rain.rawValue
         case "thunderstrom":
             return Icon.thunderstrom.rawValue
-        case "strom":
-            return Icon.strom.rawValue
+        case "storm":
+            return Icon.storm.rawValue
         case "snow":
             return Icon.snow.rawValue
         default:
