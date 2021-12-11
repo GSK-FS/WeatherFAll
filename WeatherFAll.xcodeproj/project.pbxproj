@@ -90,6 +90,11 @@
 		F4B875802764831E00B7375A /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4240A26275D6395009B5A32 /* WeatherData.swift */; };
 		F4B875812764832500B7375A /* WeatherDataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4240A30275D6528009B5A32 /* WeatherDataRequest.swift */; };
 		F4B875822764832600B7375A /* WeatherDataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4240A30275D6528009B5A32 /* WeatherDataRequest.swift */; };
+		F4B87589276494A200B7375A /* sun.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F4B87584276494A200B7375A /* sun.mp4 */; };
+		F4B8758A276494A200B7375A /* storm.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F4B87585276494A200B7375A /* storm.mp4 */; };
+		F4B8758B276494A200B7375A /* rain.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F4B87586276494A200B7375A /* rain.mp4 */; };
+		F4B8758C276494A200B7375A /* cloudy.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F4B87587276494A200B7375A /* cloudy.mp4 */; };
+		F4B8758D276494A200B7375A /* snow.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F4B87588276494A200B7375A /* snow.mp4 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -236,6 +241,11 @@
 		F4B8756927647FFB00B7375A /* WeatherFAllTVUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherFAllTVUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4B8756D27647FFB00B7375A /* WeatherFAllTVUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherFAllTVUITests.swift; sourceTree = "<group>"; };
 		F4B8756F27647FFB00B7375A /* WeatherFAllTVUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherFAllTVUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F4B87584276494A200B7375A /* sun.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = sun.mp4; sourceTree = "<group>"; };
+		F4B87585276494A200B7375A /* storm.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = storm.mp4; sourceTree = "<group>"; };
+		F4B87586276494A200B7375A /* rain.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = rain.mp4; sourceTree = "<group>"; };
+		F4B87587276494A200B7375A /* cloudy.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = cloudy.mp4; sourceTree = "<group>"; };
+		F4B87588276494A200B7375A /* snow.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = snow.mp4; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -471,6 +481,7 @@
 		F4B8754D27647FF900B7375A /* WeatherFAllTV */ = {
 			isa = PBXGroup;
 			children = (
+				F4B87583276494A200B7375A /* videos */,
 				F4B8754E27647FF900B7375A /* WeatherFAllTVApp.swift */,
 				F4B8755027647FF900B7375A /* ContentView.swift */,
 				F4B8755227647FFA00B7375A /* Assets.xcassets */,
@@ -504,6 +515,18 @@
 				F4B8756F27647FFB00B7375A /* WeatherFAllTVUITestsLaunchTests.swift */,
 			);
 			path = WeatherFAllTVUITests;
+			sourceTree = "<group>";
+		};
+		F4B87583276494A200B7375A /* videos */ = {
+			isa = PBXGroup;
+			children = (
+				F4B87584276494A200B7375A /* sun.mp4 */,
+				F4B87585276494A200B7375A /* storm.mp4 */,
+				F4B87586276494A200B7375A /* rain.mp4 */,
+				F4B87587276494A200B7375A /* cloudy.mp4 */,
+				F4B87588276494A200B7375A /* snow.mp4 */,
+			);
+			path = videos;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -879,8 +902,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4B87589276494A200B7375A /* sun.mp4 in Resources */,
+				F4B8758A276494A200B7375A /* storm.mp4 in Resources */,
 				F4B8755627647FFA00B7375A /* Preview Assets.xcassets in Resources */,
+				F4B8758C276494A200B7375A /* cloudy.mp4 in Resources */,
+				F4B8758B276494A200B7375A /* rain.mp4 in Resources */,
 				F4B8755327647FFA00B7375A /* Assets.xcassets in Resources */,
+				F4B8758D276494A200B7375A /* snow.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

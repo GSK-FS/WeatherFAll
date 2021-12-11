@@ -7,76 +7,70 @@
 
 import SwiftUI
 import CoreData
+import AVKit
 
 struct ContentView: View {
-    @Environment(\.managedObjectContext) private var viewContext
-
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
-        animation: .default)
-    private var items: FetchedResults<Item>
+    @State private var forecasts = [forecast]()
+    
+    @State private var selection = 0
+    
+    @State private var avPlayer: AVPlayer!
 
     var body: some View {
-        NavigationView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-                    } label: {
-                        Text(item.timestamp!, formatter: itemFormatter)
-                    }
-                }
-                .onDelete(perform: deleteItems)
-            }
-            .toolbar {
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
+        ZStack {
+            if forecasts.count > 0 {
+                VideoPlayer(player: avPlayer)
+                    .scaleEffect(1.5)
+                    .blur(radius: 10)
+                    .disabled(true)
+                VStack {
+                    Text("🗓 \(forecasts[selection].date)")
+                        .font(.largeTitle)
+                    Text("\(forecasts[selection].condition_desc). The high will be \(Int(forecasts[selection].temp_max)) °F")
+                        .font(.title)
                 }
             }
-            Text("Select an item")
-        }
+            
+            Button("Next day", action: {
+                if selection < forecasts.count -1 {
+                    selection += 1
+                } else {
+                    selection = 0
+                }
+                loadVideo()
+            }).offset(x: 0, y: 200)
+        }.onAppear {
+            loadData()
+        }.onReceive(NotificationCenter.default.publisher(for: NSNotification.Name.AVPlayerItemDidPlayToEndTime), perform: {_ in
+            avPlayer.seek(to: CMTime.zero)
+            
+            avPlayer.play()
+        }).ignoresSafeArea()
     }
 
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+    func loadData() {
+        let weatherDataRequest = WeatherDataRequest<WeatherData>(city: "San Francisco")
+        
+        weatherDataRequest.getData { dataResult in
+            switch dataResult {
+            case .failure:
+                print("Could not load weather data")
+            case .success(let weatherDataObjects):
+                guard let forecastArray = weatherDataObjects.first?.forecast else { return }
+                DispatchQueue.main.async {
+                    self.forecasts = forecastArray
+                    loadVideo()
+                }
+//            default:
+//                <#code#>
             }
         }
+        
     }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            offsets.map { items[$0] }.forEach(viewContext.delete)
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
+    func loadVideo() {
+        avPlayer = AVPlayer(url: Bundle.main.url(forResource: forecasts[selection].condition_name, withExtension: "mp4")!)
+        avPlayer.play()
     }
-}
-
-private let itemFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .short
-    formatter.timeStyle = .medium
-    return formatter
-}()
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
